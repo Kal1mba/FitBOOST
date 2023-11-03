@@ -1,0 +1,12 @@
+CREATE TABLE [dbo].[Trainers2] (
+    [ID] INT IDENTITY(1,1) PRIMARY KEY,
+    [ExerciseName] NVARCHAR(255),
+    [Difficulty] NVARCHAR(50),
+    [Instructions] NVARCHAR(MAX),
+    [VideoInstructions] NVARCHAR(MAX),
+    [VideoInstructionsSecond] NVARCHAR(MAX),
+    [MuscleType] NVARCHAR(50),
+    [TrainersType] NVARCHAR(50),
+	[MuscleType_ru] NVARCHAR(50),
+	[TrainersType_ru] NVARCHAR(50)
+);

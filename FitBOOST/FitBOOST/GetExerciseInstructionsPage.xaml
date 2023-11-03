@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:video="clr-namespace:Octane.Xamarin.Forms.VideoPlayer;assembly=Octane.Xamarin.Forms.VideoPlayer"
+             x:Class="FitBOOST.GetExerciseInstructionsPage">
+    <ContentPage.Content>
+
+        <StackLayout>
+            <CarouselView x:Name="VideoInstructionView"
+                          IndicatorView="IndicatorView"
+                          HeightRequest="200">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <video:VideoPlayer Source="{Binding VideoSource}" WidthRequest="300" HeightRequest="200" x:Name="VideoInstruction" AutoPlay="True" Repeat="True" DisplayControls="False"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <IndicatorView x:Name="IndicatorView"
+                           IndicatorColor="LightGray"
+                           SelectedIndicatorColor="Gray"
+                           HorizontalOptions="Center"/>
+
+
+            <Label x:Name="PageExerciseName" FontAttributes="Bold" HorizontalTextAlignment="Center" FontSize="Medium"/>
+            
+
+            <StackLayout Orientation="Horizontal" Margin="5,0,0,0">
+                <Label Text="Сложность: " FontAttributes="Bold"  VerticalOptions="Center" FontSize="Large" TextColor="#3986B7"/>
+                <Frame BorderColor="AliceBlue" CornerRadius="5" Margin="5" HasShadow="True" Padding="5,10,5,10">
+                    <Label x:Name="PageDifficulty" FontAttributes="Bold" />
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="5,0,0,0">
+                <Label Text="Группа мышц: " FontAttributes="Bold"  VerticalOptions="Center" FontSize="Large" TextColor="#3986B7"/>
+                <Frame BorderColor="AliceBlue" CornerRadius="5" Margin="5" HasShadow="True" Padding="5,10,5,10">
+                    <Label x:Name="PageMuscleType" FontAttributes="Bold" />
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="5,0,0,0">
+                <Label Text="Тип упражнения: " FontAttributes="Bold" VerticalOptions="Center" FontSize="Large" TextColor="#3986B7"/>
+                <Frame BorderColor="AliceBlue" CornerRadius="5" Margin="5" HasShadow="True" Padding="5,10,5,10">
+                    <Label x:Name="PageTrainersType" FontAttributes="Bold" />
+                </Frame>
+            </StackLayout>
+            
+            <StackLayout Orientation="Vertical">
+                <Label Text="Инструкция выполнения упражения" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium"/>
+                <Frame BorderColor="AliceBlue" CornerRadius="5" Margin="5" HasShadow="True" Padding="10,5,10,5">
+                    <Label x:Name="PageTextInstructions" FontSize="Medium"/>
+                </Frame>
+                
+            </StackLayout>
+
+
+            <Button x:Name="CloseModal"
+                    
+                    Text="Назад"
+                    Clicked="CloseModal_Clicked"/>
+            
+        </StackLayout>
+
+
+
+
+
+
+
+
+
+        <!--
+        <StackLayout>
+            <Label x:Name="testy" Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            
+        </StackLayout>
+        -->    
+    </ContentPage.Content>
+</ContentPage>

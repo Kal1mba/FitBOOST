@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FitBOOST"
+             Title="FlyoutMenu"
+             x:Class="FitBOOST.FlyoutMenuPage">
+
+    <StackLayout>
+        <ListView x:Name="listView" x:FieldModifier="public" RowHeight="60" HasUnevenRows="True">
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type local:FlyoutItemPage}">
+                    <local:FlyoutItemPage Title="Подбор тренажера" IconSource="ResultsCollectorIcon.png" TargetPage="{x:Type local:HomePage}"/>
+                    <local:FlyoutItemPage Title="Фитнес калькуляторы" IconSource="FitnessCalculatorsIcon.png" TargetPage="{x:Type local:FitnessCalculators}"/>
+                    <local:FlyoutItemPage Title="О нас" IconSource="HomePageIcon.png" TargetPage="{x:Type local:ResultsCollector}"/>
+                </x:Array>
+            </ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="70"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding IconSource}" Margin="1,1,1,1"/>
+                            <Label Grid.Column="1"
+                                   Text="{Binding Title}" 
+                                   FontSize="Large"
+                                   Padding="20,0,0,0"
+                                   Margin="0"
+                                   
+                                   VerticalTextAlignment="Center"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    
+    
+</ContentPage>

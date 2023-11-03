@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitBOOST.RulesPage">
+    <ContentPage.Content>
+        <Grid>
+
+            <!-- Background Image -->
+            <Image x:Name="welcomeBackgroundImage"/>
+
+            <!-- Gradient Overlay -->
+            <BoxView Grid.Row="0">
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="White" Offset="0.35" />
+                        <GradientStop Color="Transparent" Offset="1" />
+                        <!-- Adjust the offset and color as needed -->
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+
+            <Frame 
+                   BackgroundColor="Transparent"
+                   Margin="0,20,0,0"
+                   VerticalOptions="Start"
+                   Padding="24">
+                
+                <Label x:Name="tutleWelcomeLabel"
+                       Text="Условия пользования приложением FitBoost"
+                       VerticalOptions="FillAndExpand"
+                       Margin="0"
+                       FontSize="Large"/>
+            </Frame>
+
+
+            <Frame CornerRadius="8" 
+                   Padding="5,5,5,5"
+                   BackgroundColor="#4F4F4F"
+                   VerticalOptions="End"
+                   Margin="20">
+
+                <StackLayout Spacing="20">
+
+                    <Frame BorderColor="AliceBlue" Margin="1,2,1,2" Padding="3,3,3,3">
+                        <Editor x:Name="ruleEditor" IsReadOnly="True" HeightRequest="530"/>
+                    </Frame>
+                    
+
+                    <Button x:Name="goToBackButton"
+                            Margin="20,0,20,20"
+                            Padding="6,10"
+                            Clicked="goToBackButton_Clicked"
+                            CornerRadius="8"
+                            BackgroundColor="#27AE60"
+                            FontSize="Medium"
+                            Text="Назад"/>
+
+                </StackLayout>
+                
+            </Frame>
+
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

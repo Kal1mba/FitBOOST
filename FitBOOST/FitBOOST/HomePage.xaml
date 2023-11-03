@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitBOOST.HomePage"
+             xmlns:video="clr-namespace:Octane.Xamarin.Forms.VideoPlayer;assembly=Octane.Xamarin.Forms.VideoPlayer"
+             xmlns:local="clr-namespace:FitBOOST"
+             Title="Home">
+
+
+    <StackLayout BackgroundColor="#F4F8FA">
+        <StackLayout>
+            <CarouselView x:Name="MusclesCarouselView"
+                          IndicatorView="IndicatorView"
+                      CurrentItemChanged="MusclesCarouselView_CurrentItemChanged"
+                          HeightRequest="800">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout BackgroundColor="#F4F8FA"
+                                     HeightRequest="500">
+
+                            <Image Source="{Binding Image}"
+                                   Margin="0,2,0,2"
+                                           WidthRequest="270" HeightRequest="270"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Start"/>
+                            <Label Text="{Binding Name}"
+                                           FontSize="Large"
+                                           FontAttributes="Bold"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            
+            <IndicatorView x:Name="IndicatorView"
+                           IndicatorColor="LightGray"
+                           SelectedIndicatorColor="Gray"
+                           HorizontalOptions="Center"/>
+            <Frame BorderColor="AliceBlue" CornerRadius="5" Margin="2" HasShadow="True" Padding="10,3,10,3">
+                <StackLayout>
+                    <Label Text="Тип упражнения:" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium"/>
+
+                    <Picker 
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Start"
+                        x:Name="TrainersPicker"
+                        Title="Выбор тренажера"
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedIndexChanged="TrainersPicker_SelectedIndexChanged">
+                    </Picker>
+                </StackLayout>
+            </Frame>
+            
+        </StackLayout>
+
+
+        <Frame BorderColor="AliceBlue" CornerRadius="5" Padding="1">
+
+            <CollectionView x:Name="myCollectionView"
+                                SelectionMode="Single"
+                                Margin="20,5,20,5">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid x:Name="ResultGrid">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            </Grid.GestureRecognizers>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Frame Grid.Row="0" Margin="0,10,0,10" BorderColor="AliceBlue" CornerRadius="5" Padding="1">
+                                <StackLayout>
+                                    <video:VideoPlayer Source="{Binding VideoSource}" WidthRequest="300" HeightRequest="200" x:Name="VideoPerview" AutoPlay="True" Repeat="True" DisplayControls="False"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label x:Name="IdLabel" Text="{Binding Id}" FontSize="0" TextColor="Transparent"/>
+
+                                        <Label x:Name="ExerciseName"
+                                           Text="{Binding ExerciseName}"
+                                           Margin="5,5,5,5"
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="CenterAndExpand"/>
+                                    </StackLayout>
+                                    
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+        
+            </CollectionView>
+        </Frame>
+    </StackLayout>
+
+    
+
+
+    <!--
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <CarouselView Grid.Row="0"
+                      x:Name="MusculesCarouselView"
+                      CurrentItemChanged="MusclesCarouselView_CurrentItemChanged">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Frame 
+                               Padding="2"
+                               BackgroundColor="#F4F8FA"
+                                   CornerRadius="0"
+                                   HorizontalOptions="Center">
+                            <StackLayout>
+
+                                <Image Source="{Binding Image}"
+                                           WidthRequest="300" HeightRequest="300"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Start"/>
+                                <Label Text="{Binding Name}"
+                                           FontSize="Large"
+                                           FontAttributes="Bold"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <Picker Grid.Row="1"
+                x:Name="TurnagerPicker"
+                Title="Выбор тренажера"
+                ItemDisplayBinding="{Binding Name}"
+                SelectedIndexChanged="TurnagerPicker_SelectedIndexChanged">
+        </Picker>
+    </Grid>
+    -->
+
+
+</ContentPage>
